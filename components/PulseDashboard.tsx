@@ -477,7 +477,7 @@ const PulseDashboard: React.FC<PulseDashboardProps> = ({ cityData }) => {
 
   return (
     <div className="flex flex-col h-screen bg-transparent">
-      <div className="flex-shrink-0 bg-gray-400/30 backdrop-blur-md border-b border-slate-100 p-4 md:p-6 flex items-center justify-between z-40 relative">
+      <div className="flex-shrink-0 bg-slate-300/50 backdrop-blur-md border-b border-slate-400/20 p-4 md:p-6 flex items-center justify-between z-40 relative">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-blue-500 animate-pulse" />
           <span className="text-xs font-black uppercase tracking-widest text-slate-700">LokalOS</span>

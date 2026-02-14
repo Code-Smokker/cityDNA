@@ -27,20 +27,16 @@ const Navigation: React.FC<NavigationProps> = ({ currentScreen, setScreen, accen
         className={`flex items-center gap-3 transition-all duration-500 ease-out group ${isMobile
           ? 'flex-col p-3 rounded-[24px]'
           : 'w-full p-4 mb-2 rounded-[32px]'
-          } ${isActive ? 'scale-105' : 'opacity-40 grayscale hover:opacity-100 hover:grayscale-0'}`}
-        style={{
-          color: isActive ? accentColor : undefined,
-          backgroundColor: !isMobile && isActive ? `${accentColor}10` : 'transparent'
-        }}
+          } ${isActive ? 'scale-105 bg-black/5 text-black font-black shadow-sm' : 'opacity-60 text-slate-600 hover:opacity-100 hover:text-black hover:bg-black/5'}`}
       >
-        <div className={`p-2 rounded-2xl transition-all duration-300 ${isActive ? 'bg-current/10' : 'bg-transparent'}`}>
+        <div className={`p-2 rounded-2xl transition-all duration-300 ${isActive ? 'bg-black/10' : 'bg-transparent group-hover:bg-black/5'}`}>
           <Icon size={isMobile ? 22 : 22} strokeWidth={isActive ? 2.5 : 2} />
         </div>
-        <span className={`font-black uppercase tracking-widest ${isMobile ? 'text-[8px]' : 'text-sm'}`}>
+        <span className={`uppercase tracking-widest ${isMobile ? 'text-[8px] font-bold' : 'text-sm font-bold'}`}>
           {tab.label}
         </span>
         {!isMobile && isActive && (
-          <div className="ml-auto w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accentColor }} />
+          <div className="ml-auto w-1.5 h-1.5 rounded-full bg-black" />
         )}
       </button>
     );
@@ -49,20 +45,20 @@ const Navigation: React.FC<NavigationProps> = ({ currentScreen, setScreen, accen
   return (
     <>
       {/* Mobile Navigation Bar */}
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] bg-slate-100/90 backdrop-blur-2xl border border-white/20 rounded-[40px] p-2 flex justify-around items-center material-shadow z-50 md:hidden animate-in slide-in-from-bottom-10 duration-700">
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] bg-slate-300/60 backdrop-blur-2xl border border-slate-400/20 rounded-[40px] p-2 flex justify-around items-center material-shadow z-50 md:hidden animate-in slide-in-from-bottom-10 duration-700">
         {tabs.map((tab) => <NavItem key={tab.id} tab={tab} isMobile={true} />)}
       </nav>
 
       {/* Desktop Navigation Sidebar */}
-      <aside className="hidden md:flex flex-col w-72 h-screen bg-gray-400/20 backdrop-blur-3xl border-r border-white/20 p-6 z-50 sticky top-0 shadow-2xl transition-all duration-500">
+      <aside className="hidden md:flex flex-col w-72 h-screen bg-slate-300/50 backdrop-blur-3xl border-r border-slate-400/20 p-6 z-50 sticky top-0 shadow-2xl transition-all duration-500">
         <div className="mb-10 px-2">
           <div className="flex items-center gap-3 mb-4">
             <img src="/logo.png" alt="CityDNA Logo" className="h-10 w-10 object-contain drop-shadow-xl" />
             <span className="text-xl font-black tracking-widest text-slate-900 uppercase italic leading-none drop-shadow-sm">CityDNA</span>
           </div>
           <div className="flex items-center gap-2 px-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-            <p className="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em]">LokalOS Engine v2.4</p>
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+            <p className="text-[10px] font-black text-black uppercase tracking-[0.2em]">LokalOS Engine v2.4</p>
           </div>
         </div>
 
@@ -71,7 +67,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentScreen, setScreen, accen
         </div>
 
         <div className="mt-auto pt-8 border-t border-white/10 space-y-4">
-          <button className="flex items-center gap-4 w-full p-4 rounded-[24px] text-slate-500 hover:bg-white/20 hover:text-slate-900 transition-all font-bold uppercase tracking-widest text-xs group">
+          <button className="flex items-center gap-4 w-full p-4 rounded-[24px] text-slate-800 hover:bg-white/20 hover:text-black transition-all font-bold uppercase tracking-widest text-xs group">
             <Settings size={18} className="group-hover:rotate-90 transition-transform duration-500" />
             <span>Settings</span>
           </button>
@@ -87,7 +83,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentScreen, setScreen, accen
             <SignedIn>
               <div className="flex items-center gap-3 p-1.5 pl-2 bg-white/40 rounded-full border border-white/20 shadow-sm backdrop-blur-md">
                 <UserButton afterSignOutUrl="/" />
-                <span className="text-[10px] font-black text-slate-700 uppercase tracking-widest">Operator</span>
+                <span className="text-[10px] font-black text-black uppercase tracking-widest">Operator</span>
               </div>
             </SignedIn>
           </div>
