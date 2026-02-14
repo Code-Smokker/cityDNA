@@ -64,7 +64,7 @@ const App: React.FC = () => {
 
             {/* Main Content Area */}
             <main className="flex-1 overflow-y-auto pb-48 md:pb-12 md:pt-4">
-              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="w-full px-4 sm:px-6 lg:px-8">
                 {state.currentScreen === Screen.DASHBOARD && (
                   <PulseDashboard cityData={state.cityData} />
                 )}

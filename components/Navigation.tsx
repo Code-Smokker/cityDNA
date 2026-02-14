@@ -49,42 +49,45 @@ const Navigation: React.FC<NavigationProps> = ({ currentScreen, setScreen, accen
   return (
     <>
       {/* Mobile Navigation Bar */}
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] bg-white/90 backdrop-blur-2xl border border-white/20 rounded-[40px] p-2 flex justify-around items-center material-shadow z-50 md:hidden animate-in slide-in-from-bottom-10 duration-700">
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] bg-slate-100/90 backdrop-blur-2xl border border-white/20 rounded-[40px] p-2 flex justify-around items-center material-shadow z-50 md:hidden animate-in slide-in-from-bottom-10 duration-700">
         {tabs.map((tab) => <NavItem key={tab.id} tab={tab} isMobile={true} />)}
       </nav>
 
       {/* Desktop Navigation Sidebar */}
-      <aside className="hidden md:flex flex-col w-72 h-screen bg-white border-r border-slate-100 p-8 z-50 sticky top-0 material-shadow transition-all duration-500">
-        <div className="mb-12 px-4">
+      <aside className="hidden md:flex flex-col w-72 h-screen bg-gray-400/20 backdrop-blur-3xl border-r border-white/20 p-6 z-50 sticky top-0 shadow-2xl transition-all duration-500">
+        <div className="mb-10 px-2">
           <div className="flex items-center gap-3 mb-4">
-            <img src="/logo.png" alt="CityDNA Logo" className="h-10 w-10 object-contain" />
-            <span className="text-xl font-black tracking-widest text-slate-900 uppercase italic leading-none">CityDNA</span>
+            <img src="/logo.png" alt="CityDNA Logo" className="h-10 w-10 object-contain drop-shadow-xl" />
+            <span className="text-xl font-black tracking-widest text-slate-900 uppercase italic leading-none drop-shadow-sm">CityDNA</span>
           </div>
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">LokalOS Engine</p>
+          <div className="flex items-center gap-2 px-1">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+            <p className="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em]">LokalOS Engine v2.4</p>
+          </div>
         </div>
 
-        <div className="flex-1 space-y-2">
+        <div className="flex-1 space-y-3">
           {tabs.map((tab) => <NavItem key={tab.id} tab={tab} isMobile={false} />)}
         </div>
 
-        <div className="mt-auto pt-8 border-t border-slate-50 space-y-4">
-          <button className="flex items-center gap-4 w-full p-4 rounded-[32px] text-slate-400 hover:bg-slate-50 transition-all opacity-60 hover:opacity-100">
-            <Settings size={20} />
-            <span className="text-sm font-bold uppercase tracking-widest">Settings</span>
+        <div className="mt-auto pt-8 border-t border-white/10 space-y-4">
+          <button className="flex items-center gap-4 w-full p-4 rounded-[24px] text-slate-500 hover:bg-white/20 hover:text-slate-900 transition-all font-bold uppercase tracking-widest text-xs group">
+            <Settings size={18} className="group-hover:rotate-90 transition-transform duration-500" />
+            <span>Settings</span>
           </button>
 
-          <div className="px-4">
+          <div className="px-2">
             <SignedOut>
               <SignInButton mode="modal">
-                <button className="flex items-center gap-3 w-full px-6 py-3 bg-slate-900 text-white rounded-full font-bold uppercase text-xs tracking-widest hover:bg-slate-800 transition-colors shadow-lg">
+                <button className="flex items-center gap-3 w-full px-6 py-4 bg-slate-900/90 text-white rounded-[24px] font-black uppercase text-xs tracking-widest hover:bg-black transition-all shadow-lg hover:shadow-xl hover:scale-[1.02]">
                   <LogIn size={16} /> Sign In
                 </button>
               </SignInButton>
             </SignedOut>
             <SignedIn>
-              <div className="flex items-center gap-4 p-2 bg-slate-50 rounded-full border border-slate-100">
+              <div className="flex items-center gap-3 p-1.5 pl-2 bg-white/40 rounded-full border border-white/20 shadow-sm backdrop-blur-md">
                 <UserButton afterSignOutUrl="/" />
-                <span className="text-xs font-bold text-slate-600 uppercase">My Profile</span>
+                <span className="text-[10px] font-black text-slate-700 uppercase tracking-widest">Operator</span>
               </div>
             </SignedIn>
           </div>
