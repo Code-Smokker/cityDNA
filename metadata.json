@@ -1,0 +1,10 @@
+
+{
+  "name": "CityDNA (LokalOS)",
+  "description": "A production-grade infrastructure layer for the Indian consumer, translating raw location and dialect data into high-impact city actions.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation",
+    "camera"
+  ]
+}

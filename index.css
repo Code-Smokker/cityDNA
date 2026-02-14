@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+:root {
+    --electric-border-color: #c0c0c0;
+    --electric-light-color: #e8e8e8;
+    --gradient-color: rgba(192, 192, 192, 0.4);
+    --silver-bright: #e8e8e8;
+    --silver-medium: #a8a8a8;
+    --silver-dark: #808080;
+}
+
+/* Antigravity Floating Animation */
+@keyframes antigravity {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Marquee Scrolling Animation */
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+/* Service Card Wrapper with Antigravity */
+.service-card-wrapper {
+    flex-shrink: 0;
+    animation: antigravity 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.service-card-wrapper:hover {
+    animation-play-state: paused;
+    transform: scale(1.05);
+}
+
+/* Service Card Container */
+.service-card-container {
+    padding: 2px;
+    border-radius: 24px;
+    position: relative;
+    background: linear-gradient(-30deg, rgba(255, 255, 255, 0.05), transparent, rgba(255, 255, 255, 0.05)), #000000;
+}
+
+/* Inner Container */
+.service-inner-container {
+    position: relative;
+}
+
+/* Border Layers */
+.service-border-outer {
+    border: 2px solid rgba(192, 192, 192, 0.5);
+    border-radius: 24px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+}
+
+.service-main-card {
+    width: 320px;
+    height: 420px;
+    border-radius: 24px;
+    border: 2px solid var(--electric-border-color);
+    margin-top: -4px;
+    margin-left: -4px;
+}
+
+/* Glow Effects */
+.service-glow-layer-1 {
+    border: 2px solid rgba(192, 192, 192, 0.6);
+    border-radius: 24px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+.service-glow-layer-2 {
+    border: 2px solid var(--electric-light-color);
+    border-radius: 24px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+/* Overlay Effects */
+.service-overlay-1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px;
+    opacity: 1;
+    mix-blend-mode: overlay;
+    transform: scale(1.1);
+    filter: blur(16px);
+    background: linear-gradient(-30deg, white, transparent 30%, transparent 70%, white);
+    pointer-events: none;
+}
+
+.service-overlay-2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    transform: scale(1.1);
+    filter: blur(16px);
+    background: linear-gradient(-30deg, white, transparent 30%, transparent 70%, white);
+    pointer-events: none;
+}
+
+/* Background Glow */
+.service-background-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px;
+    filter: blur(32px);
+    transform: scale(1.1);
+    opacity: 0.3;
+    z-index: -1;
+    background: linear-gradient(-30deg, var(--silver-bright), transparent, var(--electric-border-color));
+    pointer-events: none;
+}
+
+/* Content Container */
+.service-content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.service-content-container>* {
+    pointer-events: auto;
+}
+
+/* Content Sections */
+.service-content-top {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    padding-bottom: 16px;
+    height: 100%;
+    gap: 16px;
+}
+
+.service-content-bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    padding-top: 16px;
+}
+
+/* Icon Wrapper */
+.service-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--silver-bright);
+}
+
+/* Scrollbar Glass Component with Marquee */
+.service-scrollbar-glass {
+    background: radial-gradient(47.2% 50% at 50.39% 88.37%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%),
+        rgba(255, 255, 255, 0.04);
+    position: relative;
+    transition: background 0.3s ease;
+    border-radius: 14px;
+    width: fit-content;
+    height: fit-content;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    max-width: 280px;
+}
+
+.service-scrollbar-glass:hover {
+    background: radial-gradient(47.2% 50% at 50.39% 88.37%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%),
+        rgba(255, 255, 255, 0.08);
+}
+
+.service-scrollbar-glass::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1px;
+    background: linear-gradient(150deg,
+            rgba(255, 255, 255, 0.48) 16.73%,
+            rgba(255, 255, 255, 0.08) 30.2%,
+            rgba(255, 255, 255, 0.08) 68.2%,
+            rgba(255, 255, 255, 0.6) 81.89%);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+}
+
+/* Marquee Animation */
+.service-marquee {
+    display: flex;
+    gap: 2rem;
+    animation: marqueeScroll 15s linear infinite;
+}
+
+.service-marquee.paused {
+    animation-play-state: paused;
+}
+
+.service-marquee span {
+    white-space: nowrap;
+}
+
+/* Typography */
+.service-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: auto;
+    color: white;
+    line-height: 1.2;
+}
+
+.service-description {
+    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Divider */
+.service-divider {
+    margin-top: auto;
+    border: none;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.1;
+    mask-image: linear-gradient(to right, transparent, white, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, white, transparent);
+}
