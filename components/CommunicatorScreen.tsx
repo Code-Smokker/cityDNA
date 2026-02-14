@@ -214,8 +214,10 @@ const CommunicatorScreen: React.FC<CommunicatorScreenProps> = ({ cityData, conte
     <div className="py-8 space-y-8 animate-in fade-in duration-1000 max-w-4xl mx-auto">
       <header className="px-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-4">
-          <img src="/logo.png" alt="Logo" className="w-35 h-35 object-contain animate-in zoom-in duration-500" />
-          <a href="">CityDNA</a>
+          <div className="flex items-center gap-4">
+            <img src="/logo.png" alt="Logo" className="w-20 h-20 object-contain animate-in zoom-in duration-500" />
+            <span className="text-4xl font-black tracking-widest text-slate-900 uppercase italic leading-none">CityDNA</span>
+          </div>
           <div>
             <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 italic uppercase leading-none drop-shadow-sm">Communicator</h1>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-[0.3em] ml-2">Neural Bridge & Visual Lens</p>

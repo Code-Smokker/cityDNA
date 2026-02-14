@@ -56,7 +56,10 @@ const Navigation: React.FC<NavigationProps> = ({ currentScreen, setScreen, accen
       {/* Desktop Navigation Sidebar */}
       <aside className="hidden md:flex flex-col w-72 h-screen bg-white border-r border-slate-100 p-8 z-50 sticky top-0 material-shadow transition-all duration-500">
         <div className="mb-12 px-4">
-          <img src="/logo.png" alt="CityDNA Logo" className="h-12 w-auto object-contain mb-4" />
+          <div className="flex items-center gap-3 mb-4">
+            <img src="/logo.png" alt="CityDNA Logo" className="h-10 w-10 object-contain" />
+            <span className="text-xl font-black tracking-widest text-slate-900 uppercase italic leading-none">CityDNA</span>
+          </div>
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">LokalOS Engine</p>
         </div>
 
